@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 app.use(express.json())
+const cors = require('cors')
 
 
 let persons = 
@@ -28,6 +29,7 @@ let persons =
   }
 
 ]
+app.use(cors())
 // Custom token for logging request body
 morgan.token('body', (req, res) => JSON.stringify(res.body))
 
